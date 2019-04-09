@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SQL Generator for lazy developers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container" data-id="container">
+      <h2>SQL Generator for lazy developers</h2>
+      <h4>I like a lot SQL, but writing INSERT and UDPDATE queries is so boring, specially when you have a lot of columns to feed.</h4>
+      <div class="row">
+        <div class="col-md-8">
+          <form>
+            <label>List of columns
+              <textarea class="form-control" data-id="source" rows="10" cols="80" style="margin: 0px; width: 600px; height: 400px;"></textarea></label>
+            <br>
+            <label>Format of input data
+              <select class="form-control" data-id="formats">
+                <option value="1" selected>col1, col2, col3, ...</option>
+                <option value="2">col1="xx", col2=99, col3="zz", ...</option>
+                <option value="3">JSON format {col1:"xx", col2:99, col3:"zz", ...}</option>
+              </select>
+            </label>
+            <br>
+            <label>Values generated
+              <select class="form-control" data-id="valgen" >
+                <option value="1" selected>? only</option>
+                <option value="2">values ​​provided in the source or NULL</option>
+                <option value="3">values ​​provided in the source or ?</option>
+                <option value="4">Column name with optional prefix</option>
+              </select></label>
+            <br>
+            <label>Prefix for values (optional)
+              <input class="form-control" data-id="prefix"></label>
+            <br>
+            <label></label>
+            <input type="submit" class="btn btn-primary" value="Validate" data-id="submit" />
+            <button class="btn btn-primary" data-id="btn_example">Generate example</button> 
+
+          </form><br>
+          <div class="warning" data-id="warning" style="display:none;"></div>
+          <div class="jumbotron">
+            <div data-id="resultat" style="font-family: monospace; "></div>
+          </div>
+        </div> 
+      </div>          
+    </div>
+  <script src="sql_generator.js"></script>
+  </body>
+</html>
